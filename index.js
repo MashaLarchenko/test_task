@@ -5,12 +5,8 @@ let encriptMessage = document.querySelector('#crypt_message');
 let answerMessage = document.querySelector('#answer-area');
 
 function edwardDecrypt() {
-    let encriptValue = [...encriptMessage.value];
-    let result = encriptValue.filter((item, index, arr) => {
-        return (item !== arr[index - 1] && item !== arr[index + 1] || item === arr[index - 2]);
-
-    });
-    answerMessage.value = result.join('');
+    let encriptValue = encriptMessage.value;
+    answerMessage.value = encriptValue.trim().replace(/(\w)\1/g, '');
 }
 
 button.addEventListener('click', edwardDecrypt);
