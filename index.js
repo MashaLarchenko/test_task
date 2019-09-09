@@ -7,7 +7,7 @@ let answerMessage = document.querySelector('#answer-area');
 function edwardDecrypt() {
     let encriptValue = [...encriptMessage.value];
     let result = encriptValue.filter((item, index, arr) => {
-        return (item !== arr[index - 1] && item !== arr[index + 1]);
+        return (item !== arr[index - 1] && item !== arr[index + 1] || item === arr[index - 2]);
 
     });
     answerMessage.value = result.join('');
